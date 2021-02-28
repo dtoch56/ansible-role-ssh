@@ -1,6 +1,9 @@
 ssh-role
 =========
 
+[![CI](https://github.com/dtoch56/ansible-role-ssh/workflows/CI/badge.svg?event=push)](https://github.com/dtoch56/ansible-role-ssh/actions?query=workflow%3ACI)
+
+
 SSH Server and client configuration
 
 Based on Mozilla InfoSec recommendations: https://infosec.mozilla.org/guidelines/openssh.html
