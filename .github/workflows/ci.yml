@@ -47,7 +47,6 @@ jobs:
           - ubuntu2004
           - ubuntu2010
           - debian10
-          - debian11
 
     steps:
       - name: Check out the codebase.
