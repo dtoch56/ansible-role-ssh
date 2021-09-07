@@ -18,11 +18,11 @@ Role Variables
 
 Available variables are listed below, along with default values (see defaults/main.yml):
 
-| Variable         | Description                                                          | Default  |
-| ---------------- |:--------------------------------------------------------------------:| --------:|
-| ssh_port         | Ssh-server listening port                                            | 22       |
-| ssh_ansible_user | Account for Ansible                                                  | ansible  |
-| ssh_users        | List of accounts to accept incoming SSH connections                  | {}       |
+| Variable         | Description                                         | Default  |
+| ---------------- |:--------------------------------------------------- |:-------- |
+| ssh_port         | Ssh-server listening port                           | 22       |
+| ssh_ansible_user | Account for Ansible                                 | ansible  |
+| ssh_users        | List of accounts to accept incoming SSH connections | {}       |
 
 
 Dependencies
