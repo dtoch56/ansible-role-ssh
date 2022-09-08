@@ -2,3 +2,4 @@
 ssh_port: 22
 ssh_ansible_user: ansible
 ssh_users: {}
+ssh_allow_tcp_forwarding: no
