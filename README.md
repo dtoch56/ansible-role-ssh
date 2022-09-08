@@ -23,7 +23,7 @@ Available variables are listed below, along with default values (see defaults/ma
 | ssh_port                 | Ssh-server listening port                           | 22      |
 | ssh_ansible_user         | Account for Ansible                                 | ansible |
 | ssh_users                | List of accounts to accept incoming SSH connections | {}      |
-| ssh_allow_tcp_forwarding | Allow tunneling out via SSH                         | no      |
+| ssh_allow_tcp_forwarding | Allow tunneling out via SSH                         | False   |
 
 
 Dependencies
