@@ -23,6 +23,8 @@ Available variables are listed below, along with default values (see defaults/ma
 
 | Variable                          | Description                                           | Default                              |
 |-----------------------------------|:------------------------------------------------------|:-------------------------------------|
+| ssh_configure_server              |                                                       | true                                 |
+| ssh_configure_client              |                                                       | true                                 |
 | ssh_port                          | Ssh-server listening port                             | 22                                   |
 | ssh_ansible_user                  | Account for Ansible                                   | ansible                              |
 | ssh_users                         | List of accounts to accept incoming SSH connections   | {}                                   |
