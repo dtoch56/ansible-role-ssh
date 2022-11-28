@@ -1,18 +1,39 @@
 ---
-- name: Prepare sshd config
-  ansible.builtin.template:
-    src: ./templates/sshd_config.conf
-    dest: /etc/ssh/sshd_config
-    owner: root
-    group: root
-    mode: u=rw,g=r,o=r
-  notify: Restart sshd
+- name: Update apt repositories
+  ansible.builtin.apt:
+    update_cache: true
+    force_apt_get: true
+    cache_valid_time: 86400
+  when: ansible_pkg_mgr == 'apt'
 
-- name: Prepare ssh config
-  ansible.builtin.template:
-    src: ./templates/ssh_config.conf
-    dest: /etc/ssh/ssh_config
-    owner: root
-    group: root
-    mode: u=rw,g=r,o=r
-  notify: Restart sshd
+- name: Configure openssh-server
+  when: ssh_configure_server
+  block:
+    - name: Install openssh-server
+      ansible.builtin.package:
+        state: present
+        name: openssh-server
+    - name: Prepare sshd config
+      ansible.builtin.template:
+        src: ./templates/sshd_config.conf
+        dest: /etc/ssh/sshd_config
+        owner: root
+        group: root
+        mode: u=rw,g=r,o=r
+      notify: Restart sshd
+
+- name: Configure openssh-client
+  when: ssh_configure_server
+  block:
+    - name: Install openssh-client
+      ansible.builtin.package:
+        state: present
+        name: openssh-client
+    - name: Prepare ssh config
+      ansible.builtin.template:
+        src: ./templates/ssh_config.conf
+        dest: /etc/ssh/ssh_config
+        owner: root
+        group: root
+        mode: u=rw,g=r,o=r
+      notify: Restart sshd

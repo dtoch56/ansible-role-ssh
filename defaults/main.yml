@@ -1,4 +1,7 @@
 ---
+ssh_configure_server: true
+ssh_configure_client: true
+
 ssh_port: 22
 ssh_ansible_user: ansible
 ssh_users: {}
