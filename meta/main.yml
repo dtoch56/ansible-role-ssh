@@ -1,9 +1,10 @@
+---
 galaxy_info:
   author: dtoch56
   role_name: ssh
   description: SSH server and client configuration
   license: MIT
-  min_ansible_version: 2.1
+  min_ansible_version: '2.1'
   platforms:
     - name: EL
       versions:
