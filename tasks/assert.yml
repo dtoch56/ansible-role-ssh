@@ -1,0 +1,93 @@
+---
+- name: Test if ssh_port is set correctly
+  ansible.builtin.assert:
+    that:
+      - ssh_port is defined
+      - ssh_port is number
+      - ssh_port > 0
+      - ssh_port < 65536
+    quiet: true
+
+- name: Test if ssh_listen_addresses is set correctly
+  ansible.builtin.assert:
+    that:
+      - ssh_listen_addresses is defined
+      - ssh_listen_addresses is iterable
+    quiet: true
+
+- name: Test if ssh_host_key_algorithms is set correctly
+  ansible.builtin.assert:
+    that:
+      - ssh_host_key_algorithms is defined
+      - ssh_host_key_algorithms is iterable
+    quiet: true
+
+- name: Test if ssh_kex_algorithms is set correctly
+  ansible.builtin.assert:
+    that:
+      - ssh_kex_algorithms is defined
+      - ssh_kex_algorithms is iterable
+    quiet: true
+
+- name: Test if ssh_ciphers is set correctly
+  ansible.builtin.assert:
+    that:
+      - ssh_ciphers is defined
+      - ssh_ciphers is iterable
+    quiet: true
+
+- name: Test if ssh_macs is set correctly
+  ansible.builtin.assert:
+    that:
+      - ssh_macs is defined
+      - ssh_macs is iterable
+    quiet: true
+
+- name: Test if sshd_host_key_algorithms is set correctly
+  ansible.builtin.assert:
+    that:
+      - sshd_host_key_algorithms is defined
+      - sshd_host_key_algorithms is iterable
+    quiet: true
+
+- name: Test if sshd_kex_algorithms is set correctly
+  ansible.builtin.assert:
+    that:
+      - sshd_kex_algorithms is defined
+      - sshd_kex_algorithms is iterable
+    quiet: true
+
+- name: Test if sshd_ciphers is set correctly
+  ansible.builtin.assert:
+    that:
+      - sshd_ciphers is defined
+      - sshd_ciphers is iterable
+    quiet: true
+
+- name: Test if sshd_macs is set correctly
+  ansible.builtin.assert:
+    that:
+      - sshd_macs is defined
+      - sshd_macs is iterable
+    quiet: true
+
+- name: Test if sshd_ca_signature_algorithms is set correctly
+  ansible.builtin.assert:
+    that:
+      - sshd_ca_signature_algorithms is defined
+      - sshd_ca_signature_algorithms is iterable
+    quiet: true
+
+- name: Test if sshd_hostbased_accepted_key_types is set correctly
+  ansible.builtin.assert:
+    that:
+      - sshd_hostbased_accepted_key_types is defined
+      - sshd_hostbased_accepted_key_types is iterable
+    quiet: true
+
+- name: Test if sshd_pubkey_accepted_key_types is set correctly
+  ansible.builtin.assert:
+    that:
+      - sshd_pubkey_accepted_key_types is defined
+      - sshd_pubkey_accepted_key_types is iterable
+    quiet: true

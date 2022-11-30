@@ -7,6 +7,13 @@ ssh_ansible_user: ansible
 ssh_users: {}
 ssh_allow_tcp_forwarding: false
 
+ssh_listen_addresses:
+  - "0.0.0.0"
+  - "::"
+
+ssh_host_keys:
+  - /etc/ssh/ssh_host_ed25519_key
+
 ssh_host_key_algorithms:
   - ssh-ed25519-cert-v01@openssh.com
   - ssh-rsa-cert-v01@openssh.com
@@ -71,3 +78,7 @@ sshd_hostbased_accepted_key_types:
 
 sshd_pubkey_accepted_key_types:
   - ssh-ed25519
+
+# Whether to restart openssh immediately or after
+# all other Ansible tasks have been completed.
+openssh_restart_immediately: false

@@ -1,4 +1,12 @@
 ---
+- name: Import assert.yml
+  ansible.builtin.import_tasks: assert.yml
+  run_once: true
+  delegate_to: localhost
+
+- name: Install sshd
+  ansible.builtin.import_tasks: install.yml
+
 - name: Prepare sshd config
   ansible.builtin.template:
     src: ./templates/sshd_config.conf
@@ -6,6 +14,7 @@
     owner: root
     group: root
     mode: u=rw,g=r,o=r
+    validate: sshd -f %s -t
   notify: Restart sshd
   when: ssh_configure_server
 
@@ -18,3 +27,14 @@
     mode: u=rw,g=r,o=r
   notify: Restart sshd
   when: ssh_configure_server
+
+- name: Start and enable openssh
+  ansible.builtin.service:
+    name: "{{ ssh_service }}"
+    state: started
+    enabled: true
+
+- name: Flush handlers
+  ansible.builtin.meta: flush_handlers
+  when:
+    - ssh_restart_immediately
